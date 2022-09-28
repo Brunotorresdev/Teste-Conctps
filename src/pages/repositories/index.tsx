@@ -12,6 +12,7 @@ import FirstBlock from "../../components/FirstBlock";
 import SecondBlock from "../../components/SecondBlock";
 import { ListRepositories } from "../../context";
 import React from "react";
+import ImgGraph from "../../assets/images/grafich.jpeg";
 
 const Repositories = () => {
     const [text, setText] = useState("");
@@ -74,7 +75,11 @@ const Repositories = () => {
                                 far`}
                             </h2>
                             <ContainerInput>
-                                <Image height="35px" src={ImgLupa} />
+                                <Image
+                                    height="25px"
+                                    width="50px"
+                                    src={ImgLupa}
+                                />
                                 <input
                                     type="text"
                                     placeholder="Seach"
@@ -112,23 +117,49 @@ const Repositories = () => {
                             .map((item, index) => (
                                 <a href={item.html_url} target="blanck">
                                     <CardRepo key={index}>
-                                        <h1>{item.name}</h1>
-                                        <span>{item.pushed_at}</span>
-                                        <p>{item.description}</p>
-                                        <div>
+                                        <CardRepoTop>
+                                            <h1>{item.name}</h1>
+                                            <span>
+                                                {`Updated on ${item.pushed_at.slice(
+                                                    8,
+                                                    10
+                                                )}/${item.pushed_at.slice(
+                                                    5,
+                                                    7
+                                                )}/${item.pushed_at.slice(
+                                                    0,
+                                                    4
+                                                )}`}
+                                            </span>
+                                            <p>{item.description}</p>
+                                        </CardRepoTop>
+                                        <Image src={ImgGraph} />
+                                        <CardRepoBottom>
                                             <div>
-                                                <Image src={ImgStarTwo} />
+                                                <Image
+                                                    width="20px"
+                                                    height="15px"
+                                                    src={ImgStarTwo}
+                                                />
                                                 <p>9.5k</p>
                                             </div>
                                             <div>
-                                                <Image src={ImgShare} />
+                                                <Image
+                                                    width="20px"
+                                                    height="15px"
+                                                    src={ImgShare}
+                                                />
                                                 <p>760</p>
                                             </div>
                                             <div>
-                                                <Image src={ImgAuction} />
+                                                <Image
+                                                    width="20px"
+                                                    height="15px"
+                                                    src={ImgAuction}
+                                                />
                                                 <p>MIT</p>
                                             </div>
-                                        </div>
+                                        </CardRepoBottom>
                                     </CardRepo>
                                 </a>
                             ))}
@@ -144,15 +175,25 @@ export default Repositories;
 
 const CardRepo = styled.div`
     width: 300px;
-    min-height: 250px;
-    border: 1px solid #8f8e8e;
+    height: 340px;
+    border: 1px solid rgba(238, 235, 235, 0.75);
     color: #615c5c;
     padding: 15px;
-    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    img {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+`;
+
+const CardRepoTop = styled.div`
     h1 {
-        font-size: 16px;
+        font-size: 17px;
         font-weight: 500;
-        color: #242323;
+        color: #292727;
     }
     span {
         font-size: 14px;
@@ -161,33 +202,28 @@ const CardRepo = styled.div`
         font-size: 16px;
         font-weight: 400;
         margin-top: 10px;
+        height: 115px;
+        overflow: hidden;
     }
+`;
+
+const CardRepoBottom = styled.div`
+    display: flex;
+    justify-content: space-between;
+    max-height: 25px;
+    margin-top: -5px;
     div {
         display: flex;
-        justify-content: space-between;
-        max-height: 25px;
-        margin-top: 5px;
-        p {
-            margin: 0 !important;
-            padding-left: 5px;
-        }
+        max-height: 20px;
     }
-    :hover {
-        h1 {
-            font-size: 20px;
-        }
-        span {
-            font-size: 16px;
-        }
-        p {
-            font-size: 18px;
-        }
+    p {
+        margin: 0 !important;
+        padding-left: 5px;
     }
 `;
 
 const CardContainer = styled.div`
     width: 100%;
-    height: 110%;
     box-shadow: -10px 0 10px -5px rgba(238, 235, 235, 0.75);
 `;
 
@@ -232,16 +268,17 @@ const DivInfosRepos = styled.div`
 `;
 
 const ContainerInput = styled.div`
-    width: 200px !important;
+    width: 210px !important;
     height: 25px;
 `;
 
 const CardContainerBottom = styled.div`
     width: 100%;
-    max-height: 1600px;
+    height: 2300px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
     padding: 30px;
+    box-shadow: 0 5px 5px -5px #333;
 `;

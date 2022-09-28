@@ -82,11 +82,11 @@ const GroupButtons = styled.div`
             background-color: #0a30a1;
         }
         img {
-            width: 15px;
-            height: 15px !important;
+            height: 22px !important;
+            width: 22px !important;
         }
         p {
-            margin-left: 5px;
+            margin-left: 10px;
             margin-right: 15px;
             font-size: 18px;
         }

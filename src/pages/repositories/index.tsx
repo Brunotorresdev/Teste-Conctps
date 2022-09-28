@@ -11,6 +11,7 @@ import { api } from "../../api";
 import FirstBlock from "../../components/FirstBlock";
 import SecondBlock from "../../components/SecondBlock";
 import { ListRepositories } from "../../context";
+import React from "react";
 
 const Repositories = () => {
     const [text, setText] = useState("");
@@ -40,7 +41,7 @@ const Repositories = () => {
                 minW="250px"
                 p="40px 0px 0px 0px"
             >
-                <FirstBlock listRepos={listRepos} />
+                <FirstBlock />
             </Box>
             <Box
                 position="fixed"
@@ -50,7 +51,7 @@ const Repositories = () => {
                 bg="#fff"
                 marginLeft="250px"
             >
-                <SecondBlock infosOwner={infosOwner} />
+                <SecondBlock />
             </Box>
             <Box
                 flex="1"
@@ -108,9 +109,9 @@ const Repositories = () => {
                                     return val;
                                 }
                             })
-                            .map((item) => (
+                            .map((item, index) => (
                                 <a href={item.html_url} target="blanck">
-                                    <CardRepo>
+                                    <CardRepo key={index}>
                                         <h1>{item.name}</h1>
                                         <span>{item.pushed_at}</span>
                                         <p>{item.description}</p>

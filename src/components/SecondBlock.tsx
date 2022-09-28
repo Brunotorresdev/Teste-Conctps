@@ -8,8 +8,12 @@ import ImgFollowTwo from "../assets/images/follow-two.png";
 import ImgFollowersTwo from "../assets/images/followers-two.png";
 import ImgStarTwo from "../assets/images/star-two.png";
 import ImgRepositories from "../assets/images/repositories-two.png";
+import React, { useContext } from "react";
+import { ListRepositories } from "../context";
 
-const SecondBlock = ({ infosOwner }) => {
+const SecondBlock = () => {
+    const { infosOwner }: any = useContext(ListRepositories);
+
     return (
         <>
             <SectionUser>

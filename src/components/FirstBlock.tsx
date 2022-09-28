@@ -8,8 +8,12 @@ import ImgStar from "../assets/images/star.png";
 import ImgPastas from "../assets/images/pastas.png";
 import ImgFollow from "../assets/images/followers.png";
 import ImgGithubTwo from "../assets/images/github-two.png";
+import React, { useContext } from "react";
+import { ListRepositories } from "../context";
 
-const FirstBlock = ({ listRepos }) => {
+const FirstBlock = () => {
+    const { listRepos }: any = useContext(ListRepositories);
+
     return (
         <>
             <GroupButtons>

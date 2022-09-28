@@ -56,7 +56,9 @@ const FirstBlock = () => {
                 </div>
             </GroupButtons>
             <ImgGithubContainer>
-                <ImgGithubLeft src={ImgGithubTwo} />
+                <div>
+                    <ImgGithubLeft width="70px" src={ImgGithubTwo} />
+                </div>
                 <h1>GitHub</h1>
             </ImgGithubContainer>
         </>
@@ -108,6 +110,9 @@ const ImgGithubContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    div {
+        margin-left: 7px;
+    }
     h1 {
         color: #ffffff;
         font-weight: bold;
@@ -115,8 +120,7 @@ const ImgGithubContainer = styled.div`
     }
 `;
 const ImgGithubLeft = styled(Image)`
-    border: 1px solid red;
-    width: 70px;
+    width: 70px !important;
 `;
 
 export default FirstBlock;

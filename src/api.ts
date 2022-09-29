@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const BASE_URL = 'https://api.github.com/users/Brunotorresdev/repos';
+const BASE_URL = "https://api.github.com/users/Brunotorresdev/repos";
 
 export const api = {
     getListRepos: async () => {

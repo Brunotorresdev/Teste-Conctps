@@ -273,10 +273,9 @@ const ContainerInput = styled.div`
 `;
 
 const CardContainerBottom = styled.div`
-    width: 100%;
-    height: 2300px;
+    max-width: 1250px;
+    width: 100;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
     padding: 30px;

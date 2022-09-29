@@ -1,12 +1,5 @@
 import styled from "styled-components";
 import Image from "next/image";
-import ImgPull from "../assets/images/pull.png";
-import ImgInformation from "../assets/images/information.png";
-import ImgMarket from "../assets/images/market.png";
-import ImgEye from "../assets/images/olho.png";
-import ImgStar from "../assets/images/star.png";
-import ImgPastas from "../assets/images/pastas.png";
-import ImgFollow from "../assets/images/followers.png";
 import ImgGithubTwo from "../assets/images/github-two.png";
 import React, { useContext } from "react";
 import { ListRepositories } from "../context";

@@ -1,13 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
 import ImgPerson from "../assets/images/bruno.jpg";
-import ImgAdd from "../assets/images/add.png";
-import ImgRun from "../assets/images/run.png";
-import ImgMaps from "../assets/images/maps.png";
-import ImgFollowTwo from "../assets/images/follow-two.png";
-import ImgFollowersTwo from "../assets/images/followers-two.png";
-import ImgStarTwo from "../assets/images/star-two.png";
-import ImgRepositories from "../assets/images/repositories-two.png";
 import React, { useContext } from "react";
 import { ListRepositories } from "../context";
 import { RiRunFill } from "react-icons/ri";

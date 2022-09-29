@@ -10,58 +10,74 @@ import ImgFollow from "../assets/images/followers.png";
 import ImgGithubTwo from "../assets/images/github-two.png";
 import React, { useContext } from "react";
 import { ListRepositories } from "../context";
+import { SiGithubactions } from "react-icons/si";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { RiShoppingBasket2Fill } from "react-icons/ri";
+import { RiUserFollowLine } from "react-icons/ri";
+import { FaEye } from "react-icons/fa";
+import { RiGitRepositoryCommitsFill } from "react-icons/ri";
+import { RiStarSFill } from "react-icons/ri";
+import { RiUserFollowFill } from "react-icons/ri";
+import { IconContext } from "react-icons";
 
 const FirstBlock = () => {
     const { listRepos }: any = useContext(ListRepositories);
 
     return (
-        <>
-            <GroupButtons>
-                <h2>MAIN</h2>
-                <div>
-                    <Image src={ImgPull} />
-                    <p>Pull request</p>
-                </div>
-                <div>
-                    <Image src={ImgInformation} />
-                    <p>Issues</p>
-                </div>
-                <div>
-                    <Image src={ImgMarket} />
-                    <p>Market</p>
-                </div>
-                <div>
-                    <Image src={ImgFollow} />
-                    <p>Explore</p>
-                </div>
-            </GroupButtons>
-            <GroupButtons>
-                <h2>OTHER</h2>
-                <div>
-                    <Image src={ImgEye} />
-                    <p>Overview</p>
-                </div>
-                <div>
-                    <Image src={ImgPastas} />
-                    <p>Repositories</p>
-                    <span>{listRepos.length}</span>
-                </div>
-                <div>
-                    <Image src={ImgStar} />
-                    <p>Stars</p>
-                </div>
-                <div>
-                    <Image src={ImgPull} />
-                    <p>Followers</p>
-                </div>
-            </GroupButtons>
-            <ImgGithubContainer>
-                <div>
-                    <ImgGithubLeft width="70px" src={ImgGithubTwo} />
-                </div>
-                <h1>GitHub</h1>
-            </ImgGithubContainer>
-        </>
+        <IconContext.Provider
+            value={{
+                className: "global-class-name",
+                size: "25px",
+            }}
+        >
+            <>
+                <GroupButtons>
+                    <h2>MAIN</h2>
+                    <div>
+                        <SiGithubactions />
+                        <p>Pull request</p>
+                    </div>
+                    <div>
+                        <AiOutlineInfoCircle />
+                        <p>Issues</p>
+                    </div>
+                    <div>
+                        <RiShoppingBasket2Fill />
+                        <p>Market</p>
+                    </div>
+                    <div>
+                        <RiUserFollowLine />
+                        <p>Explore</p>
+                    </div>
+                </GroupButtons>
+                <GroupButtons>
+                    <h2>OTHER</h2>
+                    <div>
+                        <FaEye />
+                        <p>Overview</p>
+                    </div>
+                    <div>
+                        <RiGitRepositoryCommitsFill />
+                        <p>Repositories</p>
+                        <span>{listRepos.length}</span>
+                    </div>
+                    <div>
+                        <RiStarSFill />
+                        <p>Stars</p>
+                    </div>
+                    <div>
+                        <RiUserFollowFill />
+                        <p>Followers</p>
+                    </div>
+                </GroupButtons>
+                <ImgGithubContainer>
+                    <div>
+                        <ImgGithubLeft width="70px" src={ImgGithubTwo} />
+                    </div>
+                    <h1>GitHub</h1>
+                </ImgGithubContainer>
+            </>
+        </IconContext.Provider>
     );
 };
 
@@ -78,6 +94,7 @@ const GroupButtons = styled.div`
         padding: 10px 0 10px 25px;
         margin-bottom: 10px;
         display: flex;
+        align-items: center;
         flex-direction: row !important;
         cursor: pointer;
         :hover {

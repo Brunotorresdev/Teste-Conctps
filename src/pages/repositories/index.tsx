@@ -245,11 +245,13 @@ const CardContainerTop = styled.div`
 
 const DivInfosRepos = styled.div`
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 40px;
     h2 {
         color: #000;
         font-size: 22px;
+        width: 322px;
     }
     div {
         display: flex;

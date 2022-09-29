@@ -10,69 +10,85 @@ import ImgStarTwo from "../assets/images/star-two.png";
 import ImgRepositories from "../assets/images/repositories-two.png";
 import React, { useContext } from "react";
 import { ListRepositories } from "../context";
+import { RiRunFill } from "react-icons/ri";
+import { SiGooglemaps } from "react-icons/si";
+import { MdPersonAdd } from "react-icons/md";
+import { RiGitRepositoryCommitsFill } from "react-icons/ri";
+import { RiStarSFill } from "react-icons/ri";
+import { RiUserFollowLine } from "react-icons/ri";
+import { RiUserFollowFill } from "react-icons/ri";
+import { IconContext } from "react-icons";
 
 const SecondBlock = () => {
     const { infosOwner }: any = useContext(ListRepositories);
 
     return (
-        <>
-            <SectionUser>
-                <div
-                    style={{
-                        borderRadius: "50%",
-                        overflow: "hidden",
-                        width: "100px",
-                        height: "100px",
-                    }}
-                >
-                    <Image src={ImgPerson} />
-                </div>
-                <br />
-                <TitlePerson>{infosOwner.login}</TitlePerson>
-                <SubTitlePerson>{`@${infosOwner.login}`}</SubTitlePerson>
-                <br />
-                <p>
-                    Front-end engineer at <br />
-                    Facebook.Co-creator <br />
-                    Redux. Creator Recomp.
-                </p>
-                <br />
-            </SectionUser>
-            <InfosPerson>
-                <div>
-                    <Image width="25px" height="25px" src={ImgRun} />
-                    <p>facebook</p>
-                </div>
-                <div>
-                    <Image width="25px" height="25px" src={ImgMaps} />
-                    <p>Redwood City, CA</p>
-                </div>
-                <div>
-                    <Image width="25px" height="25px" src={ImgAdd} />
-                    <p>15 june 2018</p>
-                </div>
-                <button>Follow</button>
-            </InfosPerson>
+        <IconContext.Provider
+            value={{
+                className: "global-class-name",
+                size: "25px",
+            }}
+        >
+            <>
+                <SectionUser>
+                    <div
+                        style={{
+                            borderRadius: "50%",
+                            overflow: "hidden",
+                            width: "100px",
+                            height: "100px",
+                        }}
+                    >
+                        <Image src={ImgPerson} />
+                    </div>
+                    <br />
+                    <TitlePerson>{infosOwner.login}</TitlePerson>
+                    <SubTitlePerson>{`@${infosOwner.login}`}</SubTitlePerson>
+                    <br />
+                    <p>
+                        Front-end engineer at <br />
+                        Facebook.Co-creator <br />
+                        Redux. Creator Recomp.
+                    </p>
+                    <br />
+                </SectionUser>
+                <InfosPerson>
+                    <div>
+                        <RiRunFill />
+                        <p>facebook</p>
+                    </div>
+                    <div>
+                        <SiGooglemaps />
+                        <p>Redwood City, CA</p>
+                    </div>
+                    <div>
+                        <MdPersonAdd />
+                        <p>15 june 2018</p>
+                    </div>
+                    <button>Follow</button>
+                </InfosPerson>
 
-            <InfosPersonTwo>
-                <div>
-                    <Image width="25px" height="25px" src={ImgRepositories} />
-                    <p>Repositories</p>
-                </div>
-                <div>
-                    <Image width="25px" height="25px" src={ImgStarTwo} />
-                    <p>Stars</p>
-                </div>
-                <div>
-                    <Image width="25px" height="25px" src={ImgFollowersTwo} />
-                    <p>Followers</p>
-                </div>
-                <div>
-                    <Image width="25px" height="25px" src={ImgFollowTwo} />
-                    <p>Following</p>
-                </div>
-            </InfosPersonTwo>
-        </>
+                <InfosPersonTwo>
+                    <div>
+                        <RiGitRepositoryCommitsFill />
+                        <p>Repositories</p>
+                    </div>
+                    <div>
+                        <RiStarSFill />
+                        <p>Stars</p>
+                    </div>
+                    <div>
+                        <RiUserFollowLine />
+                        <p>Followers</p>
+                    </div>
+                    <div>
+                        <RiUserFollowFill />
+
+                        <p>Following</p>
+                    </div>
+                </InfosPersonTwo>
+            </>
+        </IconContext.Provider>
     );
 };
 export default SecondBlock;
@@ -113,6 +129,7 @@ const InfosPerson = styled.div`
         width: 100% !important;
         margin-bottom: 40px;
         max-height: 30px;
+        align-items: center;
         p {
             margin-left: 10px;
         }

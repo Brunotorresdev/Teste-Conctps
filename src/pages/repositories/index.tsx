@@ -232,10 +232,14 @@ const CardContainer = styled.div`
 `;
 
 const CardContainerTop = styled.div`
-    height: 250px;
+    height: 280px;
     width: 100%;
     padding: 20px 30px 3px 50px;
     box-shadow: 0 5px 5px -5px #333;
+    @media (max-width: 1211px) {
+        height: 300px;
+    }
+
     h1 {
         color: #000;
         margin-top: 40px;
@@ -255,7 +259,7 @@ const DivInfosRepos = styled.div`
     h2 {
         color: #000;
         font-size: 22px;
-        width: 322px;
+        max-width: 300px;
     }
     div {
         display: flex;

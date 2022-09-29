@@ -115,8 +115,12 @@ const Repositories = () => {
                                 }
                             })
                             .map((item, index) => (
-                                <a href={item.html_url} target="blanck">
-                                    <CardRepo key={index}>
+                                <a
+                                    key={index}
+                                    href={item.html_url}
+                                    target="blanck"
+                                >
+                                    <CardRepo>
                                         <CardRepoTop>
                                             <h1>{item.name}</h1>
                                             <span>
@@ -275,8 +279,7 @@ const ContainerInput = styled.div`
 `;
 
 const CardContainerBottom = styled.div`
-    max-width: 1250px;
-    width: 100;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;

@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import React from "react";
 
 export const ListRepositories = createContext({});
 
@@ -8,6 +9,7 @@ export const ListProvider = ({ children }: any) => {
 
     return (
         <ListRepositories.Provider
+            key={""}
             value={{
                 listRepos,
                 setListRepos,

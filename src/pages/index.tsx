@@ -8,95 +8,98 @@ import * as yup from "yup";
 import { useRouter } from "next/router";
 import React from "react";
 
-// interface IFormInputs {
-//     email: string;
-//     password: string;
-// }
+interface IFormInputs {
+    email: string;
+    password: string;
+}
 
-// const schema = yup
-//     .object({
-//         email: yup.string().required("Email Obrigatório"),
-//         password: yup
-//             .string()
-//             .required("Senha Obrigatória")
-//             .min(8, "sua senha deve conter pelo menos 8 caracteres"),
-//     })
-//     .required();
+const schema = yup
+    .object({
+        email: yup.string().required("Email Obrigatório"),
+        password: yup
+            .string()
+            .required("Senha Obrigatória")
+            .min(8, "sua senha deve conter pelo menos 8 caracteres"),
+    })
+    .required();
 
 export default function Home(): JSX.Element {
-    // const {
-    //     register,
-    //     handleSubmit,
-    //     formState: { errors },
-    // } = useForm<IFormInputs>({
-    //     resolver: yupResolver(schema),
-    // });
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<IFormInputs>({
+        resolver: yupResolver(schema),
+    });
 
-    // const onSubmit = (data: IFormInputs) => console.log(data);
+    const onSubmit = (data: IFormInputs) => console.log(data);
 
-    // const router = useRouter();
+    const router = useRouter();
 
     return (
-        <div>
-            <Flex color="white" backgroundColor="#fff" height="100vh">
-                <ImgGithubContainer>
-                    <Image src={ImgGithub} alt="Picture of the author" />
-                    <p>não tem conta ou esqueceu a senha?</p>
-                    <a href="/createAccount">Crie aqui sua conta</a>
-                </ImgGithubContainer>
-                {/* <FormControl
-                    onSubmit={handleSubmit(onSubmit)}
-                    width="50%"
-                    margin="auto"
-                >
-                    <Title>Entre com sua conta</Title>
-                    <FormLabel color="#3767fd">Email</FormLabel>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <Input
-                            color="#000"
-                            type="email"
-                            placeholder="Digite seu E-mail"
-                            name="email"
-                            {...register("email")}
-                        />
-                        <ErrorMessage color="#f00">
-                            {errors.email?.message}
-                        </ErrorMessage>
+        <FlexDiv>
+            <ImgGithubContainer>
+                <Image src={ImgGithub} alt="Picture of the author" />
+                <p>não tem conta ou esqueceu a senha?</p>
+                <a href="/createAccount">Crie aqui sua conta</a>
+            </ImgGithubContainer>
+            <FormControl
+                onSubmit={handleSubmit(onSubmit)}
+                width="50%"
+                margin="auto"
+            >
+                <Title>Entre com sua conta</Title>
+                <FormLabel color="#3767fd">Email</FormLabel>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Input
+                        color="#000"
+                        type="email"
+                        placeholder="Digite seu E-mail"
+                        name="email"
+                        {...register("email")}
+                    />
+                    <ErrorMessage color="#f00">
+                        {errors.email?.message}
+                    </ErrorMessage>
 
-                        <FormLabel mt="30px" color="#3767fd">
-                            Senha
-                        </FormLabel>
-                        <Input
-                            color="#000"
-                            type="password"
-                            placeholder="Digite sua senha"
-                            name="password"
-                            {...register("password")}
-                        />
-                        <ErrorMessage color="#f00">
-                            {errors.password?.message}
-                        </ErrorMessage>
+                    <FormLabel mt="30px" color="#3767fd">
+                        Senha
+                    </FormLabel>
+                    <Input
+                        color="#000"
+                        type="password"
+                        placeholder="Digite sua senha"
+                        name="password"
+                        {...register("password")}
+                    />
+                    <ErrorMessage color="#f00">
+                        {errors.password?.message}
+                    </ErrorMessage>
 
-                        <Button
-                            disabled={
-                                errors.email?.message ||
-                                errors.password?.message
-                                    ? true
-                                    : false
-                            }
-                            type="submit"
-                            mt="50px"
-                            colorScheme="linkedin"
-                            onClick={() => router.push("/repositories")}
-                        >
-                            Entrar
-                        </Button>
-                    </form>
-                </FormControl> */}
-            </Flex>
-        </div>
+                    <Button
+                        disabled={
+                            errors.email?.message || errors.password?.message
+                                ? true
+                                : false
+                        }
+                        type="submit"
+                        mt="50px"
+                        colorScheme="linkedin"
+                        onClick={() => router.push("/repositories")}
+                    >
+                        Entrar
+                    </Button>
+                </form>
+            </FormControl>
+        </FlexDiv>
     );
 }
+
+const FlexDiv = styled.div`
+    color: white;
+    background: #fff;
+    height: 100vh;
+`;
 
 const Title = styled.h1`
     color: #3767fd;

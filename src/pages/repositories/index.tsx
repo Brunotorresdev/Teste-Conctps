@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Select } from "@chakra-ui/react";
 import styled from "styled-components";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
@@ -13,15 +13,21 @@ import SecondBlock from "../../components/SecondBlock";
 import { ListRepositories } from "../../context";
 import React from "react";
 import ImgGraph from "../../assets/images/grafich.jpeg";
+import { AiOutlineSearch } from "react-icons/ai";
+import { BsBell } from "react-icons/bs";
+import { FaRegUser } from "react-icons/fa";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { useRouter } from "next/router";
 
 const Repositories = () => {
     const [text, setText] = useState("");
+    const [isModal, setIsModal] = useState(false);
+    const [isModalNotification, setIsModalNotification] = useState(false);
 
     const { listRepos, setListRepos, infosOwner, setInfosOwner }: any =
         useContext(ListRepositories);
 
-    console.log("repos", listRepos);
-    console.log("infos", infosOwner);
+    const router = useRouter();
 
     useEffect(() => {
         ListRepos();
@@ -65,8 +71,37 @@ const Repositories = () => {
                 <CardContainer>
                     <CardContainerTop>
                         <div>
-                            <Image width="30px" height="30px" src={ImgLupa} />
-                            <Image height="35px" src={ImgLupaPerson} />
+                            <AiOutlineSearch color="#615c5c" size="25px" />
+                            <div>
+                                <DivIconTop
+                                    onClick={() =>
+                                        setIsModalNotification(
+                                            !isModalNotification
+                                        )
+                                    }
+                                >
+                                    <BsBell size="20px" color="#000" />
+                                    <IoMdArrowDropdown color="#000" />
+                                    {isModalNotification && (
+                                        <Modal>
+                                            <p>Sem notificações</p>
+                                        </Modal>
+                                    )}
+                                </DivIconTop>
+                                <DivIconBottom
+                                    onClick={() => setIsModal(!isModal)}
+                                >
+                                    <FaRegUser size="20px" color="#000" />
+                                    <IoMdArrowDropdown color="#000" />
+                                    {isModal && (
+                                        <Modal>
+                                            <p onClick={() => router.push("/")}>
+                                                Sair da sua conta
+                                            </p>
+                                        </Modal>
+                                    )}
+                                </DivIconBottom>
+                            </div>
                         </div>
                         <h1>Repositories</h1>
                         <DivInfosRepos>
@@ -75,11 +110,7 @@ const Repositories = () => {
                                 far`}
                             </h2>
                             <ContainerInput>
-                                <Image
-                                    height="25px"
-                                    width="50px"
-                                    src={ImgLupa}
-                                />
+                                <AiOutlineSearch color="#615c5c" size="25px" />
                                 <input
                                     type="text"
                                     placeholder="Seach"
@@ -239,7 +270,6 @@ const CardContainerTop = styled.div`
     @media (max-width: 1211px) {
         height: 300px;
     }
-
     h1 {
         color: #000;
         margin-top: 40px;
@@ -248,6 +278,9 @@ const CardContainerTop = styled.div`
     div {
         display: flex;
         justify-content: space-between;
+    }
+    select {
+        color: #000;
     }
 `;
 
@@ -289,4 +322,38 @@ const CardContainerBottom = styled.div`
     gap: 20px;
     padding: 30px;
     box-shadow: 0 5px 5px -5px #333;
+`;
+
+const DivIconTop = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+`;
+
+const DivIconBottom = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+`;
+
+const Modal = styled.div`
+    position: absolute;
+    border: 2px solid black;
+    width: 150px;
+    left: -100px;
+    top: 35px;
+    display: flex;
+    padding-left: 6px;
+    color: #000;
+
+    :hover {
+        background-color: #3767fd;
+        color: #fff;
+    }
 `;

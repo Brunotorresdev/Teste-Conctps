@@ -19,7 +19,6 @@ const FirstBlock = () => {
     return (
         <IconContext.Provider
             value={{
-                className: "global-class-name",
                 size: "25px",
             }}
         >

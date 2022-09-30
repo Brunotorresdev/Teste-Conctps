@@ -8,33 +8,33 @@ import * as yup from "yup";
 import { useRouter } from "next/router";
 import React from "react";
 
-interface IFormInputs {
-    email: string;
-    password: string;
-}
+// interface IFormInputs {
+//     email: string;
+//     password: string;
+// }
 
-const schema = yup
-    .object({
-        email: yup.string().required("Email Obrigatório"),
-        password: yup
-            .string()
-            .required("Senha Obrigatória")
-            .min(8, "sua senha deve conter pelo menos 8 caracteres"),
-    })
-    .required();
+// const schema = yup
+//     .object({
+//         email: yup.string().required("Email Obrigatório"),
+//         password: yup
+//             .string()
+//             .required("Senha Obrigatória")
+//             .min(8, "sua senha deve conter pelo menos 8 caracteres"),
+//     })
+//     .required();
 
 export default function Home(): JSX.Element {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<IFormInputs>({
-        resolver: yupResolver(schema),
-    });
+    // const {
+    //     register,
+    //     handleSubmit,
+    //     formState: { errors },
+    // } = useForm<IFormInputs>({
+    //     resolver: yupResolver(schema),
+    // });
 
-    const onSubmit = (data: IFormInputs) => console.log(data);
+    // const onSubmit = (data: IFormInputs) => console.log(data);
 
-    const router = useRouter();
+    // const router = useRouter();
 
     return (
         <div>
@@ -44,7 +44,7 @@ export default function Home(): JSX.Element {
                     <p>não tem conta ou esqueceu a senha?</p>
                     <a href="/createAccount">Crie aqui sua conta</a>
                 </ImgGithubContainer>
-                <FormControl
+                {/* <FormControl
                     onSubmit={handleSubmit(onSubmit)}
                     width="50%"
                     margin="auto"
@@ -92,7 +92,7 @@ export default function Home(): JSX.Element {
                             Entrar
                         </Button>
                     </form>
-                </FormControl>
+                </FormControl> */}
             </Flex>
         </div>
     );

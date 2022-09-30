@@ -10,7 +10,7 @@ import React from "react";
 
 interface IFormInputs {
     email: string;
-    password: string;
+    password: string;   
     phone: string;
     name: string;
 }

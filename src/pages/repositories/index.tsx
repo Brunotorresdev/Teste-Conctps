@@ -1,9 +1,7 @@
-import { Box, Flex, Select } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import styled from "styled-components";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
-import ImgLupa from "../../assets/images/lupa.png";
-import ImgLupaPerson from "../../assets/images/lupa-person.jpeg";
 import ImgStarTwo from "../../assets/images/star-two.png";
 import ImgShare from "../../assets/images/share.png";
 import ImgAuction from "../../assets/images/auction.png";
